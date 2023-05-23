@@ -7,7 +7,7 @@
       <label for="date">Select date:</label>  
       <input type="date" id="date" v-model="showDate" @change="updateData" />
     </div>
-    <ChartCountry :data="data" :selectedDate="selectedDate"/>
+    <LineChart :data="data" :selectedDate="selectedDate"/>
     <div class="table-container">
       <b-table>
         <thead>
@@ -37,11 +37,11 @@
 <script>
 import moment from 'moment';
 import axios from 'axios';
-import ChartCountry from './ChartCountry.vue';
+import LineChart from './LineChart.vue';
 export default {
     name:"DataDisplay",
     components:{
-      ChartCountry
+      LineChart
     },
     data() {
       return {
@@ -53,7 +53,7 @@ export default {
     },
     mounted() {
         this.getData();
-        this.showDate = moment(this.selectedDate, 'M/D/YY').format();
+        this.showDate = moment(this.selectedDate, 'M/D/YY').format('YYYY-MM-DD');
     },
     methods: {
         getData() {
@@ -77,20 +77,5 @@ export default {
 
 <style>
 
-@media screen and (max-width: 767px) {
 
-/* adjust table styles for smaller screens */
-.table-responsive {
-    overflow-x: auto;
-}
-
-.styled-table {
-    font-size: 14px;
-}
-
-.styled-table th,
-.styled-table td {
-    padding: 8px;
-}
-}
 </style>

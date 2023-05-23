@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h2>Cases by Country</h2>
+    <h2>Cases by Country</h2>
       <canvas id='myChart'></canvas>
 
   </div>
